@@ -8,7 +8,7 @@ const ContactPage = () => {
   return (
     <div className='pt-40'>
       <h1>
-        Contact info:
+        Contact info: Halllallalalallalallal
       </h1>
     </div>
   )
