@@ -35,7 +35,7 @@ const StravaComponent = async (req, res) => {
 
   const dis = (distance / 1000).toFixed(0)
   const tid = (movingTime/3600).toFixed(0)
-  
+ 
   return(
     <div className="flex justify-between">
       <div className=" flex px-16 bg-slate-100 mx-5 flex-col">
@@ -47,26 +47,11 @@ const StravaComponent = async (req, res) => {
          <p className=" text-center">{dis} KM</p>
       </div>
       <div className=" flex px-16 bg-slate-100 mx-5 flex-col">
-        <h1 className="text-xl font-burtons text underline">Moving time</h1>
+        <h1 className="text-xl font-burtons text underline">Moving time: </h1>
         <p className=" text-center">{tid} Timer</p>
       </div>
-    
-      
-
-
-      
-      {/* Count: {count},
-      Distance :{distance},
-      Moving Time :{movingTime}  */}
     </div>
   )
-  
-
-
 }
-
-
-
-
 
 export default StravaComponent;

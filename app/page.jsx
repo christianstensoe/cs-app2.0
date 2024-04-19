@@ -8,7 +8,7 @@ const HomePage = () => {
       <h1>HomePage</h1>
       <section>
         <div className="mt-20">
-        Hola
+          Welcome to my Website
         </div>
       </section>
     </main>

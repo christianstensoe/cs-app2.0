@@ -31,23 +31,23 @@ const Navbar = () => {
                 </li>
               </Link> */}
               <Link href='/strava'>
-                <li className='flex ml-10 uppercase hover:border-b text-xl text-slate-500'>
+                <li className='flex ml-10 uppercase hover:border-b text-xl text-slate-500 font-burtons'>
                 <FaRunning /> Strava
                 </li>
               </Link>
               <Link href='/about'>
-                <li className='flex ml-10 uppercase hover:border-b text-xl text-slate-500'>
+                <li className='flex ml-10 uppercase hover:border-b text-xl text-slate-500 font-burtons'>
                 <FaInfoCircle /> About
                 </li>
               </Link>
               <Link href='/contact'>
-                <li className='flex ml-10 mr-10 uppercase hover:border-b text-xl text-slate-500'>
+                <li className='flex ml-10 mr-10 uppercase hover:border-b text-xl text-slate-500 font-burtons'>
                 <FaEnvelope /> Contact
                 </li>
               </Link>
             </ul>
           </div>
-          <div onClick={handleNav} className='md:hidden cursor-pointer pl-24'>
+          <div onClick={handleNav} className='md:hidden cursor-pointer'>
             <AiOutlineMenu size={25} />
           </div>
         </div>
