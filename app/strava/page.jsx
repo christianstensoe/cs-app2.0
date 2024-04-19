@@ -1,6 +1,12 @@
 import React from 'react'
 import StravaComponent from '../api/stravaApi'
 
+export const metadata = {
+  title: "Running Stats",
+  description: "My first web app",
+  keywords: "react, jsx",
+};
+
 
 const StravaPage = () => {
   return (
