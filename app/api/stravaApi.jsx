@@ -37,20 +37,23 @@ const StravaComponent = async (req, res) => {
   const tid = (movingTime/3600).toFixed(0)
  
   return(
-    <div className="flex justify-between">
-      <div className=" flex px-16 bg-slate-100 mx-5 flex-col">
-        <h1 className="text-xl font-burtons underline">Runs:</h1>
-        <p className=" text-center">{count}</p>
-      </div>
-      <div className=" flex px-16 bg-slate-100 flex-col">
-        <h1 className="text-xl font-burtons underline"> Distance: </h1>
-         <p className=" text-center">{dis} KM</p>
-      </div>
-      <div className=" flex px-16 bg-slate-100 mx-5 flex-col">
-        <h1 className="text-xl font-burtons text underline">Moving time: </h1>
-        <p className=" text-center">{tid} Timer</p>
-      </div>
+    <div className="flex flex-col md:flex-row justify-around items-center bg-slate-100 py-4">
+    <div className="flex flex-col items-center p-4 shadow-lg rounded-lg mb-4 md:mb-0">
+        <h1 className="text-xl font-bold underline mb-2">Runs:</h1>
+        <p className="text-lg">{count}</p>
     </div>
+    <div className="flex flex-col items-center p-4 shadow-lg rounded-lg mb-4 md:mb-0">
+        <h1 className="text-xl font-bold underline mb-2">Distance:</h1>
+        <p className="text-lg">{dis} KM</p>
+    </div>
+    <div className="flex flex-col items-center p-4 shadow-lg rounded-lg mb-4 md:mb-0">
+        <h1 className="text-xl font-bold underline mb-2">Moving Time:</h1>
+        <p className="text-lg">{tid} Timer</p>
+    </div>
+</div>
+
+
+
   )
 }
 
