@@ -1,109 +1,177 @@
-'use client'
-
-import React from 'react'
-import Link from 'next/link'
-import { FaHome, FaProjectDiagram, FaEnvelope, FaInfoCircle, FaRunning} from 'react-icons/fa'
-import { AiOutlineMenu, AiOutlineClose, AiOutlineFacebook, AiOutlineInstagram , AiOutlineLinkedin} from 'react-icons/ai'
-import { useState } from 'react'
-
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import {
+  FaHome,
+  FaProjectDiagram,
+  FaEnvelope,
+  FaInfoCircle,
+  FaRunning,
+} from "react-icons/fa";
+import {
+  AiOutlineMenu,
+  AiOutlineClose,
+  AiOutlineFacebook,
+  AiOutlineInstagram,
+  AiOutlineLinkedin,
+} from "react-icons/ai";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false)
-  
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    setLoaded(true);
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleNav = () => {
-    setMenuOpen(!menuOpen)
-  }
+    setMenuOpen(!menuOpen);
+  };
+
+  const navbarOpacity = Math.max(1 - scrollY / 200, 0.5);
 
   return (
-    <nav className=' fixed w-full h-24 shadow-xl bg-white'>
-        <div className='flex justify-between items-center h-full w-full 2xl:px-5'>
-          <h3 className='text-xl font-burtons font-bold'>CHRISTIANSTENSØE</h3>
-          <div>
-            <ul className='hidden md:flex '>
-              <Link href='/'>
-                <li className='flex ml-10 uppercase hover:border-b text-xl text-slate-500 font-burtons'> 
-                  <FaHome/> Home 
-                </li>
+    <nav
+      className={`fixed top-0 w-full h-20 shadow-md transition-all duration-700 ${
+        loaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+      }`}
+      style={{ backgroundColor: `rgba(0, 0, 0, ${navbarOpacity})`, zIndex: 50 }}
+    >
+      <div className="max-w-6xl mx-auto px-4 h-full flex justify-between items-center">
+        <h1
+          className="text-xl font-semibold"
+          style={{
+            fontFamily: "Poppins, sans-serif",
+            fontSize: "1.5rem", // Adjust font size here
+            fontWeight: "900", // Adjust font thickness here
+            color: "white",
+          }}
+        >
+          CHRISTIANSTENSØE
+        </h1>
+        <ul
+          className="hidden md:flex gap-8 items-center"
+          style={{ fontFamily: "Poppins, sans-serif", fontSize: "1.25rem" }} // Adjust font size here
+        >
+          <li className="text-white hover:text-black transition-colors duration-300">
+            <Link href="/">
+              <span className="flex items-center space-x-1 cursor-pointer">
+                <span>Home</span>
+              </span>
+            </Link>
+          </li>
+          <li className="text-white hover:text-black transition-colors duration-300">
+            <Link href="/strava">
+              <span className="flex items-center space-x-1 cursor-pointer">
+                <FaRunning />
+                <span>Strava</span>
+              </span>
+            </Link>
+          </li>
+          <li className="text-white hover:text-black transition-colors duration-300">
+            <Link href="/about">
+              <span className="flex items-center space-x-1 cursor-pointer">
+                <span>About</span>
+              </span>
+            </Link>
+          </li>
+          <li className="text-white hover:text-black transition-colors duration-300">
+            <Link href="/contact">
+              <span className="flex items-center space-x-1 cursor-pointer ">
+                <span>Contact</span>
+              </span>
+            </Link>
+          </li>
+        </ul>
+        <AiOutlineMenu
+          size={25}
+          onClick={handleNav}
+          className="md:hidden cursor-pointer"
+        />
+        <div
+          className={`fixed inset-0 bg-black p-5 md:hidden transition-all duration-500 ${
+            menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+          style={{ zIndex: 50 }}
+        >
+          <AiOutlineClose
+            size={25}
+            onClick={handleNav}
+            className="cursor-pointer"
+          />
+          <ul
+            className="flex flex-col mt-4 space-y-4 bg-gray-900 opacity-90 p-4 rounded-lg"
+            style={{ fontFamily: "Poppins, sans-serif", fontSize: "1.25rem" }} // Adjust font size here
+          >
+            <li className="text-white hover:text-gray-300 transition-colors duration-300">
+              <Link href="/">
+                <span
+                  onClick={() => setMenuOpen(false)}
+                  className="cursor-pointer"
+                >
+                  Home
+                </span>
               </Link>
-              {/* <Link href='/projects'>
-                <li className='flex ml-3 uppercase hover:border-b text-xl text-slate-500'>
-                  <FaProjectDiagram /> Projects
-                </li>
-              </Link> */}
-              <Link href='/strava'>
-                <li className='flex ml-10 uppercase hover:border-b text-xl text-slate-500 font-burtons'>
-                <FaRunning /> Strava
-                </li>
+            </li>
+            <li className="text-white hover:text-gray-300 transition-colors duration-300">
+              <Link href="/strava">
+                <span
+                  onClick={() => setMenuOpen(false)}
+                  className="cursor-pointer"
+                >
+                  Strava
+                </span>
               </Link>
-              <Link href='/about'>
-                <li className='flex ml-10 uppercase hover:border-b text-xl text-slate-500 font-burtons'>
-                <FaInfoCircle /> About
-                </li>
+            </li>
+            <li className="text-white hover:text-gray-300 transition-colors duration-300">
+              <Link href="/about">
+                <span
+                  onClick={() => setMenuOpen(false)}
+                  className="cursor-pointer"
+                >
+                  About
+                </span>
               </Link>
-              <Link href='/contact'>
-                <li className='flex ml-10 mr-10 uppercase hover:border-b text-xl text-slate-500 font-burtons'>
-                <FaEnvelope /> Contact
-                </li>
+            </li>
+            <li className="text-white hover:text-gray-300 transition-colors duration-300">
+              <Link href="/contact">
+                <span
+                  onClick={() => setMenuOpen(false)}
+                  className="cursor-pointer"
+                >
+                  Contact
+                </span>
               </Link>
-            </ul>
-          </div>
-          <div onClick={handleNav} className='md:hidden cursor-pointer'>
-            <AiOutlineMenu size={25} />
-          </div>
-        </div>
-        <div className={
-          menuOpen 
-          ? "fixed left-0 top-0 w-[65%] md:hidden h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
-          : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
-        }>
-          <div className='flex w-full items-center justify-end'>
-            <div onClick={handleNav} className=' cursor-pointer'>
-              <AiOutlineClose size={25}/>
+            </li>
+            <div className="flex justify-around pt-4">
+              <Link href="https://www.instagram.com/christianstensoee/">
+                <AiOutlineInstagram
+                  size={30}
+                  className="cursor-pointer text-white hover:text-gray-300"
+                />
+              </Link>
+              <Link href="https://www.linkedin.com/in/christian-stens%C3%B8e/">
+                <AiOutlineLinkedin
+                  size={30}
+                  className="cursor-pointer text-white hover:text-gray-300"
+                />
+              </Link>
+              <Link href="#">
+                <AiOutlineFacebook
+                  size={30}
+                  className="cursor-pointer text-white hover:text-gray-300"
+                />
+              </Link>
             </div>
-          </div>
-          <div className='flex-col py-1'>
-            <ul>
-            <Link href='/'>
-              <li onClick={() => setMenuOpen(false)} className='py-2 cursor-pointer text-slate-500'>
-                Home
-              </li>
-            </Link>
-            <Link href='/projects'>
-              <li onClick={() => setMenuOpen(false)} className='py-2 cursor-pointer text-slate-500'>
-                Projects
-              </li>
-            </Link>
-            <Link href='/strava'>
-              <li onClick={() => setMenuOpen(false)} className='py-2 cursor-pointer text-slate-500'>
-                Strava
-              </li>
-            </Link>
-            <Link href='/about'>
-              <li onClick={() => setMenuOpen(false)} className='py-2 cursor-pointer text-slate-500'>
-                About
-              </li>
-            </Link>
-            <Link href='/contact'>
-              <li onClick={() => setMenuOpen(false)} className='py-2 cursor-pointer text-slate-500'>
-                Contact
-              </li>
-            </Link>
-            </ul>
-          </div>
-          <div className='flex flex-row justify-around pt-1 items-center'>
-            <Link href='https://www.instagram.com/christianstensoee/?a__=1' className='text-slate-950'>
-              <AiOutlineInstagram size={30} className='cursor-pointer' />
-            </Link>
-            <Link href='https://www.linkedin.com/in/christian-stens%C3%B8e/#' className=' text-slate-950'>
-              <AiOutlineLinkedin size={30} className='cursor-pointer'/>
-            </Link>
-            <Link href='#' className='text-slate-950'>
-              <AiOutlineFacebook size={30} className='cursor-pointer'/>
-            </Link>
-          </div>
+          </ul>
         </div>
-      </nav>
-  )
-}
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
