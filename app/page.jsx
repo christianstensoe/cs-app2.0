@@ -8,13 +8,11 @@ export default function HomePage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
           Welcome to{" "}
           <span className="text-blue-600 dark:text-blue-400">
-            CS Productions
+            CS Technologies
           </span>
         </h1>
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
-          This is a modern, clean website showcasing my projects and
-          experiences. Explore the different sections to learn more about what I
-          do.
+          {/* Content will be added here */}
         </p>
         <div className="flex flex-wrap gap-4">
           <Link
@@ -40,7 +38,7 @@ export default function HomePage() {
             Web Development
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Creating modern, responsive websites with the latest technologies.
+            {/* Content will be added here */}
           </p>
           <Link
             href="/projects"
@@ -55,8 +53,7 @@ export default function HomePage() {
             Strava Integration
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Tracking and visualizing fitness activities with Strava API
-            integration.
+            {/* Content will be added here */}
           </p>
           <Link
             href="/strava"
@@ -71,7 +68,7 @@ export default function HomePage() {
             Contact
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            Get in touch for collaborations, questions, or just to say hello.
+            {/* Content will be added here */}
           </p>
           <Link
             href="/contact"
