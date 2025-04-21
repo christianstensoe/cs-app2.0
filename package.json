@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.0.2",
+    "@mui/material": "^7.0.2",
+    "axios": "^1.8.4",
+    "clsx": "^2.1.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
     "next": "13.4.12",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.10.1"
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^7.5.1",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "22.9.0",
