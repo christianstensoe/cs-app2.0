@@ -312,7 +312,7 @@ export default function StockTipsPage() {
           )}
 
           <Typography variant="body2" sx={{ mt: 2 }}>
-            If you're seeing an API key error, make sure you've:
+            If you&apos;re seeing an API key error, make sure you&apos;ve:
           </Typography>
           <ul>
             <li>
@@ -333,8 +333,8 @@ export default function StockTipsPage() {
           </ul>
 
           <Typography variant="body2" sx={{ mt: 2 }}>
-            If you're seeing "No suitable stock tips found", this could be due
-            to:
+            If you&apos;re seeing &quot;No suitable stock tips found&quot;, this
+            could be due to:
           </Typography>
           <ul>
             <li>No top gainers data available</li>
