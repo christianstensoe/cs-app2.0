@@ -1,29 +1,86 @@
 import Link from "next/link";
-import {
-  AiOutlineInstagram,
-  AiOutlineLinkedin,
-  AiOutlineFacebook,
-} from "react-icons/ai";
-import "./globals.css";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function HomePage() {
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">Welcome to CS Productions</h1>
-      <p className="mb-4">
-        This is a sample landing page with dummy content to enable scrolling.
-      </p>
-      {[...Array(20)].map((_, i) => (
-        <p key={i} className="mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+    <div className="py-12">
+      <section className="mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          Welcome to{" "}
+          <span className="text-blue-600 dark:text-blue-400">
+            CS Productions
+          </span>
+        </h1>
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
+          This is a modern, clean website showcasing my projects and
+          experiences. Explore the different sections to learn more about what I
+          do.
         </p>
-      ))}
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href="/about"
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            About Me
+            <FaArrowRight className="ml-2" />
+          </Link>
+          <Link
+            href="/projects"
+            className="inline-flex items-center px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          >
+            View Projects
+            <FaArrowRight className="ml-2" />
+          </Link>
+        </div>
+      </section>
+
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+          <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Web Development
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Creating modern, responsive websites with the latest technologies.
+          </p>
+          <Link
+            href="/projects"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            Learn more →
+          </Link>
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+          <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Strava Integration
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Tracking and visualizing fitness activities with Strava API
+            integration.
+          </p>
+          <Link
+            href="/strava"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            Learn more →
+          </Link>
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+          <h2 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Contact
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            Get in touch for collaborations, questions, or just to say hello.
+          </p>
+          <Link
+            href="/contact"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            Learn more →
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
