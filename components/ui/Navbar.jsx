@@ -186,5 +186,5 @@ const Navbar = () => {
     </motion.nav>
   );
 };
-
+// Navbar component for the website
 export default Navbar;
