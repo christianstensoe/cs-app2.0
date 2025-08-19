@@ -10,23 +10,26 @@ import {
   FaInfoCircle,
   FaRunning,
   FaChartLine,
+  FaGraduationCap,
 } from "react-icons/fa";
-import {
-  AiOutlineMenu,
-  AiOutlineClose,
-  AiOutlineFacebook,
-  AiOutlineInstagram,
-  AiOutlineLinkedin,
-} from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { BsSun, BsMoon } from "react-icons/bs";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNav = () => {
@@ -40,19 +43,27 @@ const Navbar = () => {
   if (!mounted) return null;
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "glass-effect premium-shadow dark:premium-shadow-dark"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="text-2xl font-bold text-gradient hover:scale-105 transition-transform duration-300"
           >
-            CHRISØE
+            CHRISTIAN STENSØE
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             <Link href="/" className="nav-link">
               <FaHome className="w-4 h-4" />
               <span>Home</span>
@@ -61,9 +72,9 @@ const Navbar = () => {
               <FaRunning className="w-4 h-4" />
               <span>Strava</span>
             </Link>
-            <Link href="/about" className="nav-link">
-              <FaInfoCircle className="w-4 h-4" />
-              <span>About</span>
+            <Link href="/resume" className="nav-link">
+              <FaGraduationCap className="w-4 h-4" />
+              <span>Resume</span>
             </Link>
             <Link href="/contact" className="nav-link">
               <FaEnvelope className="w-4 h-4" />
@@ -75,9 +86,11 @@ const Navbar = () => {
             </Link>
 
             {/* Theme Toggle */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className="p-3 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 hover:bg-white/30 dark:hover:bg-slate-700/50 transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
@@ -85,14 +98,16 @@ const Navbar = () => {
               ) : (
                 <BsMoon className="w-4 h-4" />
               )}
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
+          <div className="lg:hidden flex items-center space-x-3">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={toggleTheme}
-              className="p-2 mr-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
+              className="p-3 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? (
@@ -100,17 +115,19 @@ const Navbar = () => {
               ) : (
                 <BsMoon className="w-4 h-4" />
               )}
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={handleNav}
-              className="text-gray-700 dark:text-gray-200"
+              className="p-3 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
             >
               {menuOpen ? (
-                <AiOutlineClose className="w-6 h-6" />
+                <AiOutlineClose className="w-5 h-5" />
               ) : (
-                <AiOutlineMenu className="w-6 h-6" />
+                <AiOutlineMenu className="w-5 h-5" />
               )}
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
@@ -122,9 +139,9 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-900"
+            className="lg:hidden glass-effect border-t border-white/20 dark:border-slate-700/30"
           >
-            <div className="px-4 py-4 space-y-4">
+            <div className="px-4 py-6 space-y-2">
               <Link
                 href="/"
                 className="mobile-nav-link"
@@ -142,12 +159,12 @@ const Navbar = () => {
                 <span>Strava</span>
               </Link>
               <Link
-                href="/about"
+                href="/resume"
                 className="mobile-nav-link"
                 onClick={() => setMenuOpen(false)}
               >
-                <FaInfoCircle className="w-4 h-4" />
-                <span>About</span>
+                <FaGraduationCap className="w-4 h-4" />
+                <span>Resume</span>
               </Link>
               <Link
                 href="/contact"
@@ -169,7 +186,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 
