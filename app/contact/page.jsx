@@ -1,110 +1,98 @@
+"use client";
 import React from "react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
-export const metadata = {
-  title: "Contact",
-  description: "Get in touch with Christian Stensøe",
-  keywords: "contact, email, message",
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" },
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const ContactPage = () => {
   return (
-    <div className="py-8">
-      <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-        Contact <span className="text-blue-600 dark:text-blue-400">Me</span>
-      </h1>
+    <div className="min-h-screen py-20">
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        initial="initial"
+        animate="animate"
+        variants={staggerContainer}
+      >
+        {/* Hero Section */}
+        <motion.div className="text-center mb-20" variants={fadeInUp}>
+          <h1 className="text-5xl lg:text-7xl font-bold mb-8">
+            Follow My <span className="text-gradient">Journey</span>
+          </h1>
+          <p className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            Connect with me on social media to stay updated with my latest
+            projects, insights, and professional journey in technology and
+            development.
+          </p>
+        </motion.div>
 
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow mb-8">
-        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-          Feel free to reach out if you have any questions, want to collaborate
-          on a project, or just want to say hello!
-        </p>
+        {/* Social Links */}
+        <motion.div className="max-w-2xl mx-auto" variants={fadeInUp}>
+          <div className="glass-effect rounded-3xl p-12 premium-shadow">
+            <h3 className="text-3xl font-bold mb-8 text-center text-slate-900 dark:text-white">
+              Let's Connect
+            </h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300 mb-12 text-center leading-relaxed">
+              Follow me on social media to see my latest work, insights, and
+              behind-the-scenes of my development journey.
+            </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-            <FaEnvelope className="text-blue-600 dark:text-blue-400 text-xl" />
-            <div>
-              <h3 className="font-semibold">Email</h3>
-              <p>christian@example.com</p>
+            <div className="flex justify-center gap-6">
+              <motion.a
+                href="https://www.linkedin.com/in/christian-stens%C3%B8e/"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="p-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl text-white hover:shadow-2xl transition-all duration-300 group"
+              >
+                <FaLinkedin
+                  size={32}
+                  className="group-hover:scale-110 transition-transform duration-300"
+                />
+              </motion.a>
+              <motion.a
+                href="https://github.com/christianstensoe"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="p-6 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl text-white hover:shadow-2xl transition-all duration-300 group"
+              >
+                <FaGithub
+                  size={32}
+                  className="group-hover:scale-110 transition-transform duration-300"
+                />
+              </motion.a>
+              <motion.a
+                href="https://www.instagram.com/christianstensoee/"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="p-6 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl text-white hover:shadow-2xl transition-all duration-300 group"
+              >
+                <FaInstagram
+                  size={32}
+                  className="group-hover:scale-110 transition-transform duration-300"
+                />
+              </motion.a>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-slate-600 dark:text-slate-400">
+                Stay tuned for updates on my latest projects and insights!
+              </p>
             </div>
           </div>
-
-          <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-            <FaPhone className="text-blue-600 dark:text-blue-400 text-xl" />
-            <div>
-              <h3 className="font-semibold">Phone</h3>
-              <p>+47 123 45 678</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-            <FaMapMarkerAlt className="text-blue-600 dark:text-blue-400 text-xl" />
-            <div>
-              <h3 className="font-semibold">Location</h3>
-              <p>Oslo, Norway</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
-        <h2 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-          Send a Message
-        </h2>
-        <form className="space-y-4">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="Your name"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="Your email"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows="4"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="Your message"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Send Message
-          </button>
-        </form>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
