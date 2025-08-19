@@ -42,7 +42,7 @@ const ContactPage = () => {
         <motion.div className="max-w-2xl mx-auto" variants={fadeInUp}>
           <div className="glass-effect rounded-3xl p-12 premium-shadow">
             <h3 className="text-3xl font-bold mb-8 text-center text-slate-900 dark:text-white">
-              Let's Connect
+              Let&apos;s Connect
             </h3>
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-12 text-center leading-relaxed">
               Follow me on social media to see my latest work, insights, and
