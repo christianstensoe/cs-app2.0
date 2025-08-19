@@ -68,10 +68,7 @@ const Navbar = () => {
               <FaHome className="w-4 h-4" />
               <span>Home</span>
             </Link>
-            <Link href="/strava" className="nav-link">
-              <FaRunning className="w-4 h-4" />
-              <span>Strava</span>
-            </Link>
+
             <Link href="/resume" className="nav-link">
               <FaGraduationCap className="w-4 h-4" />
               <span>Resume</span>
