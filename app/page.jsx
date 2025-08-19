@@ -349,8 +349,8 @@ export default function HomePage() {
             <span className="text-gradient">Amazing</span>?
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed">
-            Let's collaborate to bring your vision to life with cutting-edge
-            technology and exceptional design.
+            Let&apos;s collaborate to bring your vision to life with
+            cutting-edge technology and exceptional design.
           </p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href="/contact">

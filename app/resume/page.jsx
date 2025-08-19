@@ -369,7 +369,8 @@ export default function ResumePage() {
                   Asia European Business School
                 </h4>
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
-                  Bachelor's degree in Business Administration – Shanghai, China
+                  Bachelor&apos;s degree in Business Administration – Shanghai,
+                  China
                 </p>
                 <p className="text-sm text-slate-500 dark:text-slate-500 mb-1">
                   Terminated due to the pandemic
@@ -448,8 +449,8 @@ export default function ResumePage() {
             Ready to <span className="text-gradient">Collaborate</span>?
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-300 mb-12 max-w-3xl mx-auto">
-            Let's work together to bring your ideas to life with cutting-edge
-            technology and innovative solutions.
+            Let&apos;s work together to bring your ideas to life with
+            cutting-edge technology and innovative solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/contact">
