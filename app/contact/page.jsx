@@ -52,6 +52,8 @@ const ContactPage = () => {
             <div className="flex justify-center gap-6">
               <motion.a
                 href="https://www.linkedin.com/in/christian-stens%C3%B8e/"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="p-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl text-white hover:shadow-2xl transition-all duration-300 group"
@@ -63,6 +65,8 @@ const ContactPage = () => {
               </motion.a>
               <motion.a
                 href="https://github.com/christianstensoe"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="p-6 bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl text-white hover:shadow-2xl transition-all duration-300 group"
@@ -74,6 +78,8 @@ const ContactPage = () => {
               </motion.a>
               <motion.a
                 href="https://www.instagram.com/christianstensoee/"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className="p-6 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl text-white hover:shadow-2xl transition-all duration-300 group"

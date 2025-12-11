@@ -53,17 +53,14 @@ export default function HomePage() {
               className="text-5xl lg:text-7xl font-bold mb-8 text-balance"
               variants={fadeInUp}
             >
-              Crafting Digital <span className="text-gradient">Excellence</span>
+              Christian Stensøe
             </motion.h1>
 
             <motion.p
               className="text-xl lg:text-2xl text-slate-600 dark:text-slate-300 mb-12 leading-relaxed text-balance"
               variants={fadeInUp}
             >
-              AI and ML enthusiast with a passion for business and global
-              industries. Specializing in the shipping industry, bringing
-              innovative technology solutions to maritime challenges from my
-              roots in Ålesund.
+              Artificial intelligence student
             </motion.p>
 
             <motion.div
