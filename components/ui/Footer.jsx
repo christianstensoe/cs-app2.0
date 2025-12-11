@@ -16,9 +16,6 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-gradient mb-2">
               CHRISTIAN STENSØE
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 text-sm">
-              Crafting digital experiences with precision and elegance
-            </p>
           </div>
 
           <div className="flex flex-col items-center lg:items-end space-y-4">
@@ -30,7 +27,9 @@ const Footer = () => {
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <Link
                   href="https://www.instagram.com/christianstensoee/"
-                  className="p-3 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-11 h-11 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
                   aria-label="Instagram"
                 >
                   <AiOutlineInstagram size={20} />
@@ -39,7 +38,9 @@ const Footer = () => {
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <Link
                   href="https://www.linkedin.com/in/christian-stens%C3%B8e/"
-                  className="p-3 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-11 h-11 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
                   aria-label="LinkedIn"
                 >
                   <AiOutlineLinkedin size={20} />
@@ -48,7 +49,9 @@ const Footer = () => {
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                 <Link
                   href="https://github.com/christianstensoe"
-                  className="p-3 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-11 h-11 rounded-full bg-white/20 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/20 dark:border-slate-700/30"
                   aria-label="GitHub"
                 >
                   <AiOutlineGithub size={20} />
