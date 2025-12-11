@@ -9,7 +9,6 @@ import {
   FaEnvelope,
   FaInfoCircle,
   FaRunning,
-  FaChartLine,
   FaGraduationCap,
 } from "react-icons/fa";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
@@ -76,10 +75,6 @@ const Navbar = () => {
             <Link href="/contact" className="nav-link">
               <FaEnvelope className="w-4 h-4" />
               <span>Contact</span>
-            </Link>
-            <Link href="/stock-tips" className="nav-link">
-              <FaChartLine className="w-4 h-4" />
-              <span>Stock Tips</span>
             </Link>
 
             {/* Theme Toggle */}
@@ -163,14 +158,6 @@ const Navbar = () => {
               >
                 <FaEnvelope className="w-4 h-4" />
                 <span>Contact</span>
-              </Link>
-              <Link
-                href="/stock-tips"
-                className="mobile-nav-link"
-                onClick={() => setMenuOpen(false)}
-              >
-                <FaChartLine className="w-4 h-4" />
-                <span>Stock Tips</span>
               </Link>
             </div>
           </motion.div>
