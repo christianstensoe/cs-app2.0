@@ -5,7 +5,6 @@ import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaHome,
-  FaProjectDiagram,
   FaEnvelope,
   FaInfoCircle,
   FaRunning,
