@@ -4,7 +4,7 @@ const nextConfig = {
   // Dev only: lets devices on the LAN (the "Network" URL) load dev-server
   // assets; without this Next blocks them and pages render without JS.
   // Update the IP if your machine gets a different DHCP address.
-  allowedDevOrigins: ["192.168.0.165"],
+  allowedDevOrigins: ["192.168.0.165", "192.168.50.29"],
 };
 
 module.exports = nextConfig;
