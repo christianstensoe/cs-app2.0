@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getRunningStats } from "@/lib/strava";
+import { getRunningStats } from "@/lib/activities";
 
-// Cache the response for ~15 min; the client polls this to pick up new runs.
+// Same caching as the /running page; the client polls this to pick up new runs.
 export const revalidate = 900;
 
 export async function GET() {
@@ -9,7 +9,7 @@ export async function GET() {
     const stats = await getRunningStats();
     return NextResponse.json(stats);
   } catch (error) {
-    console.error("[/api/running] failed to load Strava stats:", error);
+    console.error("[/api/running] failed to load running stats:", error);
     return NextResponse.json(
       { error: "Failed to load running stats" },
       { status: 502 },

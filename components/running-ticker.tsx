@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import type { RunningStats } from "@/lib/strava";
+import type { RunningStats } from "@/lib/activities";
 
 // useLayoutEffect on the client, no-op on the server (avoids SSR warning).
 const useIsoLayoutEffect =

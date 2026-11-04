@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getRunningStats } from "@/lib/strava";
+import { getRunningStats } from "@/lib/activities";
 import { RunningTicker } from "@/components/running-ticker";
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "A live ticker of my total running distance this year, synced from Strava.",
 };
 
-// Re-fetch from Strava at most once every ~15 min for the server-rendered value.
+// Re-read from the database at most once every ~15 min.
 export const revalidate = 900;
 
 export default async function RunningPage() {
@@ -16,7 +16,7 @@ export default async function RunningPage() {
   try {
     stats = await getRunningStats();
   } catch (error) {
-    console.error("[/running] failed to load Strava stats:", error);
+    console.error("[/running] failed to load running stats:", error);
   }
 
   return (
