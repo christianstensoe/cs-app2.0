@@ -116,13 +116,30 @@ export async function getAccessToken(): Promise<string> {
   return token.access_token;
 }
 
+/** Fetch one activity. Returns null if it no longer exists (404). */
+export async function fetchActivity(
+  id: number,
+  accessToken: string,
+): Promise<StravaActivity | null> {
+  const res = await fetch(`${API_BASE}/activities/${id}`, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+    cache: "no-store",
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    throw new Error(`Strava activity request failed (${res.status})`);
+  }
+  return (await res.json()) as StravaActivity;
+}
+
 /**
  * Page through the athlete's full activity list. Sum activities myslf
  * (rather than using /athletes/{id}/stats) because the stats endpoint only
  * counts activities set to "Everyone" visibility — it silently drops private
  * ("Only You"/"Followers") runs. This requires the `activity:read_all` scope.
  *
- * Used by the full import / manual re-sync (npm run db:sync).
+ * Used for the one-time import / manual re-sync (npm run db:sync); new
+ * activities arrive one at a time through the webhook instead.
  */
 export async function fetchAllActivities(
   accessToken: string,

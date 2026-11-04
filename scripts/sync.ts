@@ -1,7 +1,7 @@
 /**
  * Create the tables (if missing) and do a full import of every Strava
- * activity into Postgres. Safe to re-run any time as a manual re-sync.
- * Run with: npm run db:sync
+ * activity into Postgres. Safe to re-run any time as a manual re-sync — e.g.
+ * if a webhook was missed. Run with: npm run db:sync
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";

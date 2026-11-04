@@ -8,7 +8,8 @@ export const metadata: Metadata = {
     "A live ticker of my total running distance this year, synced from Strava.",
 };
 
-// Re-read from the database at most once every ~15 min.
+// Rebuilt when the Strava webhook reports a change, and at least every 15 min
+// so the "last 4 weeks" window stays current.
 export const revalidate = 900;
 
 export default async function RunningPage() {

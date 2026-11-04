@@ -1,5 +1,9 @@
 import { sql } from "@/lib/db";
-import type { StravaActivity } from "@/lib/strava";
+import {
+  fetchActivity,
+  getAccessToken,
+  type StravaActivity,
+} from "@/lib/strava";
 
 /**
  * Running totals in kilometres (1 decimal). `updatedAt` is an ISO timestamp
@@ -50,6 +54,20 @@ export function upsertActivity(a: StravaActivity) {
 
 export function deleteActivity(id: number) {
   return sql()`DELETE FROM activities WHERE id = ${id}`;
+}
+
+/** Bring one activity in line with Strava. Called for each webhook event. */
+export async function syncActivity(
+  id: number,
+  aspect: "create" | "update" | "delete",
+): Promise<void> {
+  if (aspect === "delete") {
+    await deleteActivity(id);
+    return;
+  }
+  const activity = await fetchActivity(id, await getAccessToken());
+  // null = deleted (or no longer accessible) since the event was sent.
+  await (activity ? upsertActivity(activity) : deleteActivity(id));
 }
 
 /**
