@@ -74,19 +74,24 @@ async function fetchAccessToken(): Promise<string> {
 }
 
 /**
- * Page through the athlete's full activity list. We sum activities ourselves
+ * Page through the athlete's full activity list. Sum activities myslf
  * (rather than using /athletes/{id}/stats) because the stats endpoint only
  * counts activities set to "Everyone" visibility — it silently drops private
  * ("Only You"/"Followers") runs. This requires the `activity:read_all` scope.
  */
-async function fetchAllActivities(accessToken: string): Promise<StravaActivity[]> {
+async function fetchAllActivities(
+  accessToken: string,
+): Promise<StravaActivity[]> {
   const perPage = 200;
   const activities: StravaActivity[] = [];
 
   for (let page = 1; page <= 50; page++) {
     const res = await fetch(
       `${API_BASE}/athlete/activities?per_page=${perPage}&page=${page}`,
-      { headers: { Authorization: `Bearer ${accessToken}` }, cache: "no-store" },
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        cache: "no-store",
+      },
     );
     if (!res.ok) {
       throw new Error(`Strava activities request failed (${res.status})`);

@@ -13,9 +13,9 @@ export default function HomePage() {
 
       <p className="mt-6 max-w-prose leading-relaxed text-muted">
         I&apos;m pursuing my Master&apos;s degree at the Norwegian University of
-        Science and Technology, with an exchange year at Tsinghua University in
-        Beijing. My experience spans software development, consulting, and
-        investment risk.
+        Science and Technology, with exchange semesters at Tsinghua University
+        in Beijing and Shanghai Jiao Tong University. My experience spans
+        software development, consulting, and investment risk.
       </p>
 
       <div className="mt-10 flex flex-wrap items-center gap-3">

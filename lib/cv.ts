@@ -114,9 +114,15 @@ export const cvSections: CvSection[] = [
       },
       {
         title: "Exchange Program",
+        org: "Shanghai Jiao Tong University",
+        location: "Shanghai, China",
+        period: "Sept. 2026 – Jan. 2027",
+      },
+      {
+        title: "Exchange Program",
         org: "Tsinghua University",
         location: "Beijing, China",
-        period: "Sept. 2025 – Jun. 2026",
+        period: "Sept. 2025 – Jan. 2026",
         description:
           "Courses in AI and Machine Learning, Business Analytics, and Economics.",
       },
